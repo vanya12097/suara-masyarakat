@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('kantor.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.85); /* semi-transparan */
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .header {
+    padding: 20px;
+    background-color: transparent;
+  }
+
+  h1, p {
+    color: #f7f5f5;
+  }
+
+  img {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Datang | PENGADUAN WARGA - Suara Warga</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body, html { 
+      height: 100%; 
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 119, 182, 0.8), rgba(0, 180, 216, 0.6));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2s ease-in-out;
+}
+    
+    .welcome-text {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      animation: slideUp 1.5s ease-out;
+    }
+    
+    .welcome-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .welcome-text p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    
+    .btn-masuk {
+      padding: 18px 40px;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+      animation: pulse 2s infinite;
+    }
+    
+    .btn-masuk:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    #main-content { 
+      display: none; 
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh; 
+    }
+    
+    .header {
+     background: linear-gradient(135deg, #060280, #5264ef, #060280);
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    .container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    .cta { 
+      text-align: center; 
+      margin: 40px 0; 
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta button, .cta a button {
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta button:nth-child(1) {
+      background: linear-gradient(135deg, #4caf50, #45a049);
+      color: white;
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+    }
+    
+    .cta button:nth-child(2) {
+      background: linear-gradient(135deg, #2196f3, #1976d2);
+      color: white;
+      box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
+    }
+    
+    .cta a button {
+      background: linear-gradient(135deg, #ff9800, #f57c00);
+      color: white;
+      box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
+    }
+    
+    .cta button:hover, .cta a button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .popup-form {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      backdrop-filter: blur(5px);
+    }
+    
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .popup-form.show .form-box {
+      transform: scale(1);
+      opacity: 1;
+    }
+    
+    .form-box h2 {
+      margin-bottom: 20px;
+      color: #2e8b57;
+      font-weight: 600;
+    }
+    
+    .form-box input, .form-box textarea, .form-box select {
+      width: 100%; 
+      margin-bottom: 15px; 
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0; 
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    
+    .form-box input:focus, .form-box textarea:focus, .form-box select:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    }
+    
+    .form-box button {
+      padding: 12px 25px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .form-box button:first-of-type {
+      background: linear-gradient(135deg, #4caf50, #45a049);
+      color: white;
+    }
+    
+    .form-box button:last-of-type {
+      background: linear-gradient(135deg, #f44336, #d32f2f);
+      color: white;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #2e8b57;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    
+    .laporan-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .laporan-card {
+      background: white; 
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .laporan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .laporan-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .laporan-card h4 { 
+      margin: 10px 0 5px; 
+      color: #2e8b57;
+      font-weight: 600;
+    }
+    
+    .laporan-card p {
+      margin: 5px 0;
+      color: #666;
+    }
+    
+    .status {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .status.proses {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    .status.selesai {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .about-section {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin: 40px 0;
+    }
+    
+    .about-section h2 {
+      color: #2e8b57;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .about-section p {
+      line-height: 1.7;
+      color: #555;
+      font-size: 1.1rem;
+    }
+    
+    .footer {
+     background: linear-gradient(135deg, #240bc3, #583dde);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @media (max-width: 768px) {
+      .welcome-text h1 {
+        font-size: 2rem;
+      }
+      
+      .cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta button, .cta a button {
+        width: 80%;
+        max-width: 300px;
+      }
+      
+      .laporan-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- INTRO VIDEO -->
+  <div class="video-container" id="intro">
+    <video autoplay muted playsinline id="introVideo">
+      <source src="vt.mp4" type="video/mp4">
+      Browser Anda tidak mendukung pemutaran video.
+    </video>
+    <div class="overlay">
+      <div class="welcome-text">
+        <h1>INDIKATOR KINERJA SIANTAR UTARA </h1>
+        <p>Suara Warga untuk Lingkungan yang Lebih Baik</p>
+      </div>
+      <button class="btn-masuk" onclick="masuk()">MASUK SEKARANG</button>
+    </div>
+  </div>
+
+<div class="header">
+  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+    
+    <!-- Kiri: Walikota & Wakil Walikota -->
+    <div style="flex: 1; min-width: 220px; display: flex; flex-direction: column; align-items: center;">
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <div style="text-align: center;">
+          <img src="walikota.png" alt="Walikota" style="height: 160px;">
+          <p style="margin-top: 5px; font-size: 11px;">WESLY SILALAHI, S.H., M.KN<br><i>Walikota Pematangsiantar</i></p>
+        </div>
+        <div style="text-align: center;">
+          <img src="wawalikota.png" alt="Wakil Walikota" style="height: 160px;">
+          <p style="margin-top: 5px; font-size: 11px;">HERLINA<br><i>Wakil Walikota Pematangsiantar</i></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tengah: Judul -->
+    <div style="flex: 2; min-width: 300px; text-align: center;">
+      <h1>Selamat Datang di</h1>
+      <h1>Indikator Kinerja Siantar Utara</h1>
+      <p>Laporkan masalah lingkungan Anda. Kami siap mendengarkan dan bertindak!</p>
+    </div>
+
+    <!-- Kanan: Camat -->
+    <div style="flex: 1; min-width: 200px; text-align: center;">
+      <img src="camat.png" alt="Camat" style="height: 160px;">
+      <p style="margin-top: 5px; font-size: 11px;">MARLON BRANDO SITORUS, S.STP. M.Si<br><i>Camat Siantar Utara</i></p>
+    </div>
+    
+  </div>
+</div>
+
+    <div class="container">
+      <div class="cta">
+        <button onclick="showForm()">📝 Buat Laporan</button>
+        <button onclick="document.getElementById('laporanList').scrollIntoView()">👁 Lihat Laporan</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link" target="_blank">
+          <button>🚀 Buka IKASU</button>
+        </a>
+      </div>
+      <!-- Pop-Up Form -->
+<div id="formPopup" class="popup-form">
+  <form class="form-box" action="https://formspree.io/f/xrblgvrj" method="POST" enctype="multipart/form-data">
+    <h2>📋 Buat Laporan Baru</h2>
+    <input type="text" name="nama" placeholder="Nama Anda (Opsional)">
+    <select name="kategori" required>
+      <option selected disabled>Pilih Jenis Keluhan</option>
+      <option>🛣 Jalan Rusak</option>
+      <option>🚰 Parit Tersumbat</option>
+      <option>💡 Lampu Mati</option>
+      <option>🗑 Sampah</option>
+      <option>⚔ Tawuran</option>
+      <option>🚫 Kegiatan Tanpa Izin</option>
+      <option>🧟 Premanisme Dan Pemalakan</option>
+      <option>🚷 Penyalahgunaan Ruang Publik</option>
+      <option>🔊 Kegiatan Yang Menggangu Ketenangan Warga</option>
+      <option>🗑 Pelanggaran Kebersihan Dan Ketertiban Lingkungan</option>
+      <option>🚨 Perilaku Asusila Di Tempat Umum</option>
+      <option>🚦 Pelanggaran Lalu Lintas Yang Menggangu Umum</option>
+      <option>🔧 Lainnya</option>
+    </select>
+    <input type="text" name="lokasi" placeholder="📍 Lokasi Kejadian" required>
+    <input type="file" name="gambar" accept="image/*">
+    <textarea name="deskripsi" rows="4" placeholder="📝 Deskripsi Singkat" required></textarea>
+    <button type="submit">✅ Kirim Laporan</button>
+    <button type="button" onclick="hideForm()">❌ Tutup</button>
+  </form>
+</div>
+
+      <h2 class="section-title" id="laporanList">📊 Daftar Laporan Warga</h2>
+      <div class="laporan-list">
+        <div class="laporan-card">
+          <img src="https://via.placeholder.com/300x200/2e8b57/ffffff?text=Lampu+Jalan" alt="Foto laporan">
+          <h4>💡 Lampu Jalan Mati</h4>
+          <p><b>📍 Lokasi:</b> RT 03/RW 02</p>
+          <p><b>📅 Tanggal:</b> 10 Juli 2025</p>
+          <p><b>👤 Pelapor:</b> Anonim</p>
+          <span class="status proses">⏳ Dalam Proses</span>
+        </div>
+        
+        <div class="laporan-card">
+          <img src="https://via.placeholder.com/300x200/4caf50/ffffff?text=Parit+Bersih" alt="Foto laporan">
+          <h4>🚰 Parit Tersumbat</h4>
+          <p><b>📍 Lokasi:</b> Jl. Melati No. 15</p>
+          <p><b>📅 Tanggal:</b> 8 Juli 2025</p>
+          <p><b>👤 Pelapor:</b> Pak Budi</p>
+          <span class="status selesai">✅ Selesai</span>
+        </div>
+        
+        <div class="laporan-card">
+          <img src="https://via.placeholder.com/300x200/ff9800/ffffff?text=Jalan+Rusak" alt="Foto laporan">
+          <h4>🛣 Jalan Berlubang</h4>
+          <p><b>📍 Lokasi:</b> Jl. Mawar RT 05</p>
+          <p><b>📅 Tanggal:</b> 12 Juli 2025</p>
+          <p><b>👤 Pelapor:</b> Ibu Sari</p>
+          <span class="status proses">⏳ Dalam Proses</span>
+        </div>
+      </div>
+
+ <footer style="
+  background: linear-gradient(to right, #2274b7, #ffffff);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+">
+<div style="flex: 1; text-align: left;">
+    <img src="berahlak.png" alt="Logo Kiri" style="max-width: 250px; height: auto;">
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="bangsa.png" alt="Ikon Tengah" style="max-width: 250px; height: auto;">
+  </div>
+  <div>
+    <img src="cscs.png" alt="#cskeras" style="max-width: 250px; height: auto;">
+  </div>
+</footer>
+
+
+  <script>
+    function masuk() {
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    }
+    
+    function showForm() {
+      const popup = document.getElementById('formPopup');
+      popup.style.display = 'flex';
+      setTimeout(() => popup.classList.add('show'), 10);
+    }
+    
+    function hideForm() {
+      const popup = document.getElementById('formPopup');
+      popup.classList.remove('show');
+      setTimeout(() => popup.style.display = 'none', 300);
+    }
+    
+    function submitForm() {
+      alert('Laporan berhasil dikirim! Terima kasih atas partisipasi Anda.');
+      hideForm();
+    }
+    
+    const video = document.getElementById('introVideo');
+    video.onended = masuk;
+    
+    // Smooth scrolling untuk mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => {
+        button.addEventListener('touchstart', function() {
+          this.style.transform = 'scale(0.95)';
+        });
+        button.addEventListener('touchend', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
