@@ -412,13 +412,13 @@
   <!-- INTRO VIDEO -->
   <div class="video-container" id="intro">
     <video autoplay muted playsinline id="introVideo">
-      <source src="vt.mp4" type="video/mp4">
+      <source src="Kecamatan Siantar Utara (IKASU) .mp4" type="video/mp4">
       Browser Anda tidak mendukung pemutaran video.
     </video>
     <div class="overlay">
       <div class="welcome-text">
         <h1>INDIKATOR KINERJA SIANTAR UTARA </h1>
-        <p>Suara Warga untuk Lingkungan yang Lebih Baik</p>
+        <p>Aspirasi Warga untuk Lingkungan yang Lebih Baik</p>
       </div>
       <button class="btn-masuk" onclick="masuk()">MASUK SEKARANG</button>
     </div>
@@ -459,17 +459,20 @@
 
     <div class="container">
       <div class="cta">
-        <button onclick="showForm()">📝 Buat Laporan</button>
-        <button onclick="document.getElementById('laporanList').scrollIntoView()">👁 Lihat Laporan</button>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link" target="_blank">
-          <button>🚀 Buka IKASU</button>
-        </a>
-      </div>
+  <button onclick="document.getElementById('laporanList').scrollIntoView()">👁 Lihat Laporan</button>
+  <a href="https://forms.gle/cLNFN2dhDYZJaCTr9" target="_blank">
+    <button>📄 Form Google</button>
+  </a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link" target="_blank">
+    <button>🚀 Buka IKASU</button>
+  </a>
+</div>
       <!-- Pop-Up Form -->
 <div id="formPopup" class="popup-form">
   <form class="form-box" action="https://formspree.io/f/xrblgvrj" method="POST" enctype="multipart/form-data">
     <h2>📋 Buat Laporan Baru</h2>
     <input type="text" name="nama" placeholder="Nama Anda (Opsional)">
+    <input type="tel" name="telepon" placeholder="No Hp anda">
     <select name="kategori" required>
       <option selected disabled>Pilih Jenis Keluhan</option>
       <option>🛣 Jalan Rusak</option>
@@ -477,13 +480,11 @@
       <option>💡 Lampu Mati</option>
       <option>🗑 Sampah</option>
       <option>⚔ Tawuran</option>
-      <option>🚫 Kegiatan Tanpa Izin</option>
       <option>🧟 Premanisme Dan Pemalakan</option>
       <option>🚷 Penyalahgunaan Ruang Publik</option>
       <option>🔊 Kegiatan Yang Menggangu Ketenangan Warga</option>
       <option>🗑 Pelanggaran Kebersihan Dan Ketertiban Lingkungan</option>
       <option>🚨 Perilaku Asusila Di Tempat Umum</option>
-      <option>🚦 Pelanggaran Lalu Lintas Yang Menggangu Umum</option>
       <option>🔧 Lainnya</option>
     </select>
     <input type="text" name="lokasi" placeholder="📍 Lokasi Kejadian" required>
@@ -494,35 +495,10 @@
   </form>
 </div>
 
-      <h2 class="section-title" id="laporanList">📊 Daftar Laporan Warga</h2>
-      <div class="laporan-list">
-        <div class="laporan-card">
-          <img src="https://via.placeholder.com/300x200/2e8b57/ffffff?text=Lampu+Jalan" alt="Foto laporan">
-          <h4>💡 Lampu Jalan Mati</h4>
-          <p><b>📍 Lokasi:</b> RT 03/RW 02</p>
-          <p><b>📅 Tanggal:</b> 10 Juli 2025</p>
-          <p><b>👤 Pelapor:</b> Anonim</p>
-          <span class="status proses">⏳ Dalam Proses</span>
-        </div>
-        
-        <div class="laporan-card">
-          <img src="https://via.placeholder.com/300x200/4caf50/ffffff?text=Parit+Bersih" alt="Foto laporan">
-          <h4>🚰 Parit Tersumbat</h4>
-          <p><b>📍 Lokasi:</b> Jl. Melati No. 15</p>
-          <p><b>📅 Tanggal:</b> 8 Juli 2025</p>
-          <p><b>👤 Pelapor:</b> Pak Budi</p>
-          <span class="status selesai">✅ Selesai</span>
-        </div>
-        
-        <div class="laporan-card">
-          <img src="https://via.placeholder.com/300x200/ff9800/ffffff?text=Jalan+Rusak" alt="Foto laporan">
-          <h4>🛣 Jalan Berlubang</h4>
-          <p><b>📍 Lokasi:</b> Jl. Mawar RT 05</p>
-          <p><b>📅 Tanggal:</b> 12 Juli 2025</p>
-          <p><b>👤 Pelapor:</b> Ibu Sari</p>
-          <span class="status proses">⏳ Dalam Proses</span>
-        </div>
-      </div>
+      <div class="laporan-list" id="laporanList">
+  <!-- Data laporan warga akan ditampilkan di sini secara dinamis -->
+</div>
+
 
  <footer style="
   background: linear-gradient(to right, #2274b7, #ffffff);
@@ -581,6 +557,6 @@
         });
       });
     });
-  </script>
+  </script> 
 </body>
 </html>
