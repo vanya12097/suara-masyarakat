@@ -460,7 +460,6 @@
     <div class="container">
       <div class="cta">
   <button onclick="showForm()">📝 Buat Laporan</button>
-  <button onclick="document.getElementById('laporanList').scrollIntoView()">👁 Lihat Laporan</button>
   <a href="https://forms.gle/cLNFN2dhDYZJaCTr9" target="_blank">
     <button>📄 PENGADUAN</button>
   </a>
@@ -495,19 +494,6 @@
     <button type="button" onclick="hideForm()">❌ Tutup</button>
   </form>
 </div>
-
-    <div class="laporan-section" id="laporanSection">
-        <h2 class="section-title">📊 Laporan Warga Terkini</h2>
-        <div style="text-align: center; margin-bottom: 20px;">
-          <button onclick="loadLaporan()" style="padding: 10px 20px; background: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer;">🔄 Muat Ulang Data</button>
-        </div>
-        <div class="laporan-list" id="laporanList">
-          <div style="text-align: center; padding: 40px; color: #666;">
-            <p>⏳ Memuat data laporan...</p>
-            <p style="font-size: 0.9rem; margin-top: 10px;">Klik "Muat Ulang Data" untuk melihat laporan terbaru</p>
-          </div>
-        </div>
-      </div>
 
  <footer style="
   background: linear-gradient(to right, #2274b7, #ffffff);
