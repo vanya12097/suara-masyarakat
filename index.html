@@ -459,9 +459,10 @@
 
     <div class="container">
       <div class="cta">
+  <button onclick="showForm()">📝 Buat Laporan</button>
   <button onclick="document.getElementById('laporanList').scrollIntoView()">👁 Lihat Laporan</button>
   <a href="https://forms.gle/cLNFN2dhDYZJaCTr9" target="_blank">
-    <button>📄 Form Google</button>
+    <button>📄 PENGADUAN</button>
   </a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link" target="_blank">
     <button>🚀 Buka IKASU</button>
@@ -488,17 +489,25 @@
       <option>🔧 Lainnya</option>
     </select>
     <input type="text" name="lokasi" placeholder="📍 Lokasi Kejadian" required>
-    <input type="file" name="gambar" accept="image/*">
+    <input type="file" name="gambar" accept="image/*(Opsional)">
     <textarea name="deskripsi" rows="4" placeholder="📝 Deskripsi Singkat" required></textarea>
     <button type="submit">✅ Kirim Laporan</button>
     <button type="button" onclick="hideForm()">❌ Tutup</button>
   </form>
 </div>
 
-      <div class="laporan-list" id="laporanList">
-  <!-- Data laporan warga akan ditampilkan di sini secara dinamis -->
-</div>
-
+    <div class="laporan-section" id="laporanSection">
+        <h2 class="section-title">📊 Laporan Warga Terkini</h2>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <button onclick="loadLaporan()" style="padding: 10px 20px; background: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer;">🔄 Muat Ulang Data</button>
+        </div>
+        <div class="laporan-list" id="laporanList">
+          <div style="text-align: center; padding: 40px; color: #666;">
+            <p>⏳ Memuat data laporan...</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Klik "Muat Ulang Data" untuk melihat laporan terbaru</p>
+          </div>
+        </div>
+      </div>
 
  <footer style="
   background: linear-gradient(to right, #2274b7, #ffffff);
