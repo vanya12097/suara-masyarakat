@@ -11,12 +11,6 @@
     background-attachment: fixed;
   }
 
-  .overlay {
-    background-color: rgba(255, 255, 255, 0.85); /* semi-transparan */
-    min-height: 100vh;
-    padding: 20px;
-  }
-
   .header {
     padding: 20px;
     background-color: transparent;
@@ -387,25 +381,66 @@
       50% { transform: translateY(-10px); }
     }
     
+      /* MENU IKASU */
+.menu-grid{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:30px;
+    margin:40px auto;
+}
+
+.menu-link{
+    text-decoration:none;
+}
+
+.menu-card{
+    width:280px;
+    height:150px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    color:white;
+    transition:0.3s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.menu-card:hover{
+    transform:translateY(-8px);
+}
+
+.menu-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.menu-title{
+    font-size:26px;
+    font-weight:bold;
+    color:white;
+}
+
+.biru{
+    background:#2D9CDB;
+}
+
+.hijau{
+    background:#27AE60;
+}
+
+.merah{
+    background:#EB5757;
+}
+
     @media (max-width: 768px) {
       .welcome-text h1 {
         font-size: 2rem;
       }
-      
-      .cta {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .cta button, .cta a button {
-        width: 80%;
-        max-width: 300px;
-      }
-      
-      .laporan-list {
-        grid-template-columns: 1fr;
-      }
-    }
+}
   </style>
 </head>
 <body>
@@ -424,6 +459,8 @@
     </div>
   </div>
 
+  <div id="main-content">
+
 <div class="header">
   <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
     
@@ -432,11 +469,11 @@
       <div style="display: flex; gap: 10px; justify-content: center;">
         <div style="text-align: center;">
           <img src="walikota.png" alt="Walikota" style="height: 160px;">
-          <p style="margin-top: 5px; font-size: 11px;">WESLY SILALAHI, S.H., M.KN<br><i>Walikota Pematangsiantar</i></p>
+          <p style="margin-top: 5px; font-size: 11px;">WESLY SILALAHI, S.H., M.Kn<br><i>Wali kota Pematangsiantar</i></p>
         </div>
         <div style="text-align: center;">
           <img src="wawalikota.png" alt="Wakil Walikota" style="height: 160px;">
-          <p style="margin-top: 5px; font-size: 11px;">HERLINA<br><i>Wakil Walikota Pematangsiantar</i></p>
+          <p style="margin-top: 5px; font-size: 11px;">HERLINA<br><i>Wakil Wali kota Pematangsiantar</i></p>
         </div>
       </div>
     </div>
@@ -457,19 +494,39 @@
   </div>
 </div>
 
-    <div class="container">
-      <div class="cta">
-  <button onclick="showForm()">📝 Buat Laporan</button>
-  <a href="https://forms.gle/cLNFN2dhDYZJaCTr9" target="_blank">
-    <button>📄 PENGADUAN</button>
-  </a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link" target="_blank">
-    <button>🚀 Buka IKASU</button>
-  </a>
+   <div class="container">
+    <div class="menu-grid">
+
+        <div class="menu-card biru" onclick="showForm()">
+            <div class="menu-icon">📝</div>
+            <div class="menu-title">BUAT LAPORAN</div>
+        </div>
+
+        <div class="menu-card hijau" onclick="showPermohonan()">
+            <div class="menu-icon">📄</div>
+            <div class="menu-title">PELAYANAN IKASU</div>
+        </div>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfELvRtx27DoknaDe-_o-Katkbp5WZUcC2Xq43sFW0noZnqsA/viewform?usp=sf_link"
+           target="_blank"
+           class="menu-link">
+
+            <div class="menu-card merah">
+                <div class="menu-icon">🚀</div>
+                <div class="menu-title">BUKA IKASU</div>
+            </div>
+
+        </a>
+
+    </div>
+
+</div>
+
 </div>
       <!-- Pop-Up Form -->
 <div id="formPopup" class="popup-form">
-  <form class="form-box" action="https://formspree.io/f/xrblgvrj" method="POST" enctype="multipart/form-data">
+  <form action="https://formspree.io/f/xrblgvrj"
+      method="POST">
     <h2>📋 Buat Laporan Baru</h2>
     <input type="text" name="nama" placeholder="Nama Anda (Opsional)">
     <input type="tel" name="telepon" placeholder="No Hp anda">
@@ -488,11 +545,87 @@
       <option>🔧 Lainnya</option>
     </select>
     <input type="text" name="lokasi" placeholder="📍 Lokasi Kejadian" required>
-    <input type="file" name="gambar" accept="image/*(Opsional)">
+   <input type="file" name="gambar" accept="image/*">
     <textarea name="deskripsi" rows="4" placeholder="📝 Deskripsi Singkat" required></textarea>
-    <button type="submit">✅ Kirim Laporan</button>
+    <button type="submit" name="submit">✅ Kirim Laporan</button>
     <button type="button" onclick="hideForm()">❌ Tutup</button>
   </form>
+</div>
+
+<div id="permohonanPopup" class="popup-form">
+  <div class="form-box">
+
+    <form action="https://formspree.io/f/xrblgvrj" method="POST">
+
+      <h2>📄 Form Permohonan</h2>
+
+      <input type="date" name="tanggal" required>
+
+      <select name="urusan" required>
+        <option selected disabled>Pilih Urusan</option>
+        <option>Pemerintahan</option>
+        <option>Pemberdayaan Masyarakat/Bantuan</option>
+        <option>Ketentraman Dan Ketertiban Umum</option>
+        <option>Pelayanan Umum</option>
+        <option>Lainnya</option>
+      </select>
+      
+      <input
+        type="text"
+        name="perihal"
+        placeholder="Perihal"
+        required
+      >
+
+      <input
+        type="text"
+        name="nama_masyarakat"
+        placeholder="Nama Masyarakat"
+        required
+      >
+
+      <input
+        type="text"
+        name="no_hp"
+        placeholder="No HP"
+        required
+      >
+
+      <select name="kelurahan" required>
+        <option selected disabled>Pilih Kelurahan</option>
+        <option>Melayu</option>
+        <option>Martoba</option>
+        <option>Baru</option>
+        <option>Sukadame</option>
+        <option>Kahean</option>
+        <option>Singgulang</option>
+        <option>Bane</option>
+      </select>
+
+      <input type="file" name="berkas_permohonan" required>
+
+      <button type="submit">
+        ✅ Kirim Permohonan
+      </button>
+
+      <button type="button" onclick="hidePermohonan()">
+        ❌ Tutup
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+    <button onclick="kirimPermohonan()">
+      ✅ Kirim Permohonan
+    </button>
+
+    <button onclick="hidePermohonan()">
+      ❌ Tutup
+    </button>
+
+  </div>
 </div>
 
  <footer style="
@@ -512,7 +645,6 @@
     <img src="cscs.png" alt="#cskeras" style="max-width: 250px; height: auto;">
   </div>
 </footer>
-
 
   <script>
     function masuk() {
@@ -536,6 +668,29 @@
       alert('Laporan berhasil dikirim! Terima kasih atas partisipasi Anda.');
       hideForm();
     }
+
+    function showPermohonan() {
+  const popup = document.getElementById('permohonanPopup');
+  popup.style.display = 'flex';
+  setTimeout(() => popup.classList.add('show'), 10);
+}
+
+function hidePermohonan() {
+  const popup = document.getElementById('permohonanPopup');
+  popup.classList.remove('show');
+
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 300);
+}
+
+function kirimPermohonan() {
+  alert(
+    'Permohonan berhasil dikirim.\nStatus : Permohonan'
+  );
+
+  hidePermohonan();
+}
     
     const video = document.getElementById('introVideo');
     video.onended = masuk;
